@@ -42,6 +42,17 @@ async function work(
         throw new Error('Invalid memo value');
     }
 
+    //
+    //  A full 256-bit hash is two EAS-blocks, so in the worst case the
+    //  counter increments twice. To make sure we don't get any counter overlap
+    //  if we were to add a memo for the same recipient right after this
+    //  transaction, we multiply the sequence number by two first.
+    //
+    //  Since initial sequence numbers for accounts depend on what ledger
+    //  they were created in, getting the same sequence number for a memo
+    //  in a transaction that goes in the opposite direction is very unlikely.
+    //
+
     const seqNum = Long.fromString(sequenceNumber);
     const nonce = Buffer.concat([
         padding,
