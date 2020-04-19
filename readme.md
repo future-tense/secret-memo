@@ -2,6 +2,12 @@
 
 Create secret transaction memos using public-key encryption.
 
+Uses `@futuretense/stellar-box` in un-authenticated mode (since the transaction is signed anyway),
+with the sequence number of the transaction source account ("the sender") as the nonce.
+
+All memo types are supported.
+
+
 ## Installation
 
     npm install @futuretense/secret-memo
