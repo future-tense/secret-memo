@@ -87,10 +87,11 @@ async function work(
 
 /**
  *
- * @param sequenceNumber -
- * @param keys -
- * @param to -
- * @param memo -
+ * @param sequenceNumber - the nonce
+ * @param keys - the private keys of the sender
+ * @param to - the public key of the recipient
+ * @param memo - the memo to encrypt
+ * @returns a memo with an encrypted value
  */
 export function encodeMemo(
     sequenceNumber: string,
@@ -104,10 +105,11 @@ export function encodeMemo(
 
 /**
  *
- * @param sequenceNumber -
- * @param keys -
- * @param from -
- * @param memo -
+ * @param sequenceNumber - the nonce
+ * @param keys - the private keys of the recipient
+ * @param from - the publid key of the sender
+ * @param memo - the memo to decode
+ * @returns a memo with a decrypted value
  */
 export function decodeMemo(
     sequenceNumber: string,
@@ -120,8 +122,9 @@ export function decodeMemo(
 
 /**
  *
- * @param tx -
- * @param keys -
+ * @param tx - the transaction that contains the encrypted memo
+ * @param keys - the private keys of the recipient
+ * @returns a memo with a decrypted value
  */
 export function decodeTransactionMemo(
     tx: Transaction,
