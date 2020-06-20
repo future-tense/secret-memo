@@ -23,7 +23,7 @@
   "dependencies": {
     "@futuretense/stellar-box": "^1.0.1",
     "long": "^4.0.0",
-    "stellar-sdk": "^4.1.0"
+    "stellar-sdk": "^5.0.0"
   },
   "devDependencies": {
     "@types/node": "^13.13.0",
